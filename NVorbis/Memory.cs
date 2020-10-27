@@ -93,7 +93,7 @@ namespace NVorbis
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Memory<T> Slice(int start, int length)
         {
-            if ((uint)start > (uint)length || (uint)length > (uint)(length - start))
+            if ((uint)start > (uint)_length || (uint)length > (uint)(_length - start))
             {
                 throw new ArgumentOutOfRangeException("start is less than zero or greater than Length or length is greater than Length - start");
             }
