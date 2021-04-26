@@ -3,11 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace NVorbis
 {
-    // Need fake Memory<T> and Span<T> until C#8 support is available (Unity 2020.2)
+    // Need fake Memory<T> and Span<T>
     // Only the exact interface used by NVorbis has been implemented.
     // The performance benefits of Memory/Span in C#8 aren't duplicated,
     // only the logical functionality.
-#if !UNITY_2020_2_OR_NEWER
     readonly struct Memory<T>
     {
         private readonly T[] _object;
@@ -140,5 +139,4 @@ namespace NVorbis
 
         public T this[int index] => _object[_index + index];
     }
-#endif
 }
